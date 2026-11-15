@@ -68,6 +68,8 @@ async function networkFirst(req) {
     const res = await fetch(req, isDocument ? { cache: 'no-store' } : {});
     if (res && res.ok) {
       cache.put(req, res.clone()).catch(() => {});
+      // 오프라인 폴백용 껍데기('./index.html')도 마지막으로 본 문서로 갱신한다.
+      if (isDocument) cache.put('./index.html', res.clone()).catch(() => {});
     }
     return res;
   } catch (err) {
