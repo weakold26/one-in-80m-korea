@@ -981,7 +981,7 @@ function v70MoveOptions(g){const used={},picked=[];
  const opts=picked.map(c=>({label:`${c.place}${josa62(c.place,'으로/로')} 간다`,hint:`${v70indShort(c.dom)} ${c.pct}% · ${V70_MOVE_JOB[c.dom]||'일자리'}이 많은 곳`,initial:`짐을 싸서 ${c.place}${josa62(c.place,'으로/로')} 옮겼습니다. 이 지역은 ${v70indShort(c.dom)} ${c.pct}%인 곳이라 그 일부터 알아봤습니다.`,
   effect:{stats:{relationship:-1,happiness:1},flagsAdd:['moved:choice']},costKRW:0,afterYears:2,action:{type:'move_to',place:c.place},followupId:'v70_move_echo'}));
  opts.push({label:'지금 사는 곳에 남는다',hint:'옮기지 않고 있던 자리를 지킨다',initial:'이사 이야기를 접고 지금 사는 곳에 남았습니다. 다니던 길과 아는 사람들을 그대로 두었습니다.',
-  effect:{stats:{relationship:1},flagsAdd:['moved:stay']},costKRW:0,afterYears:2,followupId:'v70_move_echo'});
+  effect:{stats:{relationship:1},flagsAdd:['moved:stay']},costKRW:0,afterYears:2,followupId:'v70_move_stay_echo'});
  return opts}
 function v69EntryJob(g){const s=v69Industry(g,g.place,g.year).share;
  const parts=[['farmer',s.farm],['factory',s.industry],['technician',s.build*1.6+s.industry*.4],['service',s.service*.7],
@@ -1293,6 +1293,7 @@ const V70_DEC_FOLLOW={
  'v70_first_exam_1_echo':{text:'친구들과 답을 맞춰 보던 시간이 그해의 기억으로 남았습니다. 다음 시험에도 같은 무리가 모였습니다.',sign:'·'},
  'v70_first_exam_2_echo':{text:'성적은 평소 실력 언저리였습니다. 시험은 한 번 지나갔고 학기는 계속되었습니다.',sign:'·'},
  'v70_move_echo':{text:'새로 옮긴 곳의 길과 가게 이름을 하나씩 익혔습니다. 익숙해지는 데는 1년이 걸렸습니다.',sign:'·'},
+ 'v70_move_stay_echo':{text:'이사 이야기를 접은 자리에서 같은 길을 계속 다녔습니다. 익숙한 가게와 이웃이 그대로 남았습니다.',sign:'·'},
  'v69_wolse_echo':{text:'매달 같은 날 집세를 냈습니다. 통장에서 빠져나가는 금액을 늘 확인했습니다.',sign:'·'},
  'v69_jeonse_lease_echo':{text:'계약 기간이 지나 보증금을 돌려받았습니다. 다음 집을 볼 때는 조건을 더 천천히 읽었습니다.',sign:'+'},
  'v69_buy_echo':{text:'내 집에서 맞는 두 번째 겨울이었습니다. 대출 잔액과 이자 일정을 장부에 적었습니다.',sign:'·'},
