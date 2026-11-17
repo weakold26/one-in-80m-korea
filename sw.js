@@ -8,7 +8,7 @@
  *
  * 캐시 이름은 자산 목록이 바뀔 때만 올리면 된다. (HTML 갱신은 자동)
  */
-const VERSION = 'v1';
+const VERSION = 'v2';   /* v7.5: 화면 판이 바뀌어 캐시를 새로 받는다 */
 const CACHE = 'one-in-80m-' + VERSION;
 
 const PRECACHE = [
